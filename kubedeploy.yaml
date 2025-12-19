@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: pratham-eta-container
-        image: pratham155/javawebapp:IMAGE_TAG
+        image: pratham155/javawebapp:11
         ports:
         - containerPort: 8080
 ---
