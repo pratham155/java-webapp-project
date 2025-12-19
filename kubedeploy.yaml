@@ -28,7 +28,7 @@ metadata:
     app: pratham-eta-app
 spec:
   selector:
-    app: pratham-eta-app-lbl
+    app: pratham-eta-app
   type: NodePort
   ports:
   - nodePort: 31028
