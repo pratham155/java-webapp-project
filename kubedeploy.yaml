@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pratham-eta-deploy
+  labels:
+    app: pratham-eta-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pratham-eta-app
+  template:
+    metadata:
+      labels:
+        app: pratham-eta-app
+    spec:
+      containers:
+      - name: pratham-eta-container
+        image: pratham155/javawebapp
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pratham-eta-np-service
+  labels:
+    app: pratham-eta-app
+spec:
+  selector:
+    app: pratham-eta-app-lbl
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080
